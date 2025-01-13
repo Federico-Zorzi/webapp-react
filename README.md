@@ -3,7 +3,9 @@ repo: webapp-react
 ma lavoreremo anche su webapp-express (la stessa di ieri)
 
 Esercizio
-Ora è il momento di prepararci al frontend della nostra Web App!MILESTONE 1
+Ora è il momento di prepararci al frontend della nostra Web App!
+
+MILESTONE 1
 
     Mettiamo su un nuovo progetto React aiutandoci con Vite
     Ripuliamo come sempre l’app da file e codice di esempio non necessari
