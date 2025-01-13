@@ -17,3 +17,11 @@ a {
   max-height: 100px;
   overflow-y: scroll;
 }
+
+.toast {
+  display: block;
+}
+
+.vote {
+  font-weight: bold;
+}
