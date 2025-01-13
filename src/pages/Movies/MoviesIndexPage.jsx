@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+// IMPORT COMPONENTS
+import Card from "../../components/mainComponents/Card";
+
 export default function MoviesIndexPage() {
   const serverUrl = import.meta.env.VITE_SERVER_URL + "/api/movies";
 
@@ -20,15 +23,17 @@ export default function MoviesIndexPage() {
   return (
     <>
       <div className="container">
-        <h1 className="pt-3">Movies</h1>
+        <h1>Movies</h1>
 
-        <ul>
+        <div className="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3">
           {movies.map((movie) => (
-            <li key={movie.id}>
-              <Link to={"/movies/" + movie.id}>{movie.title}</Link>
-            </li>
+            <Link key={movie.id} to={"/movies/" + movie.id}>
+              <div className="col card-movie">
+                <Card movie={movie} />
+              </div>
+            </Link>
           ))}
-        </ul>
+        </div>
       </div>
     </>
   );

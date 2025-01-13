@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+// IMPORT COMPONENTS
+import Card from "../../components/mainComponents/Card";
+
 export default function MoviesShowPage() {
   const { id } = useParams();
   const serverUrl = import.meta.env.VITE_SERVER_URL + "/api/movies/" + id;
@@ -21,7 +24,7 @@ export default function MoviesShowPage() {
   return (
     <>
       <div className="container">
-        <h1 className="pt-3">{movie.title}</h1>
+        <Card movie={movie} />
       </div>
     </>
   );

@@ -1,0 +1,19 @@
+a {
+  text-decoration: none;
+}
+
+.card-movie,
+.card,
+.card-sections,
+.poster {
+  height: 100%;
+}
+
+.poster {
+  width: 100%;
+}
+
+.card-text {
+  max-height: 100px;
+  overflow-y: scroll;
+}
