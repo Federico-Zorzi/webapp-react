@@ -11,6 +11,33 @@ export default function MoviesShowPage() {
 
   const [movie, setMovie] = useState([]);
 
+  // FUNCTION FOR RATE WITH STARS
+  const rateStarsConversion = (rate) => {
+    let decodStars = [];
+    const numbTrunc = Math.trunc(rate);
+    const numOfStars = Math.round(rate);
+
+    for (let i = 1; i <= 5; i++) {
+      if (i <= numOfStars) {
+        if (i == numOfStars && rate / 2 - numbTrunc >= 0.5) {
+          decodStars.push("semi-empty");
+        } else {
+          decodStars.push("full");
+        }
+      } else {
+        decodStars.push("empty");
+      }
+    }
+
+    return decodStars;
+  };
+
+  // ADD NEW FIELD IN SINGLE OBJECT ELEMENT FOR REVIEWS FOR PRINT STARS
+  movie.reviews &&
+    movie.reviews.forEach((review) => {
+      review.starsVote = rateStarsConversion(review.vote);
+    });
+
   // FETCH FUNCTION FOR SINGLE MOVIE
   function fetchMovie() {
     fetch(serverUrl)
@@ -20,8 +47,6 @@ export default function MoviesShowPage() {
       });
   }
   useEffect(fetchMovie, []);
-
-  console.log(movie.reviews);
 
   return (
     <>
@@ -39,7 +64,33 @@ export default function MoviesShowPage() {
                     <div className="card-header">
                       <div className="row">
                         <div className="col">{review.reviews_author_name}</div>
-                        <div className="col text-end vote">{review.vote}</div>
+                        <div className="col vote text-end">
+                          {review.starsVote && Array.isArray(review.starsVote)
+                            ? review.starsVote.map((star, index) => {
+                                if (star === "full") {
+                                  return (
+                                    <i
+                                      key={index}
+                                      className="star fa-solid fa-star"
+                                    ></i>
+                                  );
+                                } else if (star === "empty") {
+                                  return (
+                                    <i
+                                      key={index}
+                                      className="star fa-regular fa-star"
+                                    ></i>
+                                  );
+                                } else
+                                  return (
+                                    <i
+                                      key={index}
+                                      className="star fa-solid fa-star-half-stroke"
+                                    ></i>
+                                  );
+                              })
+                            : ""}
+                        </div>
                       </div>
                     </div>
                     <div className="card-body">

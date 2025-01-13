@@ -25,3 +25,7 @@ a {
 .vote {
   font-weight: bold;
 }
+
+.star {
+  color: rgb(201, 201, 2);
+}
