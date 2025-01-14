@@ -4,6 +4,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 
 // IMPORT COMPONENTS
 import Card from "../../components/mainComponents/Card";
+import ReviewsList from "../../components/mainComponents/ReviewsComponents/ReviewsList";
 
 export default function MoviesShowPage() {
   const { id } = useParams();
@@ -76,53 +77,7 @@ export default function MoviesShowPage() {
           <h2>Reviews</h2>
 
           <div className="row">
-            {movie.reviews &&
-              movie.reviews.map((review, index) => (
-                <div key={index} className="col-12 g-3">
-                  <div className="card cards-review">
-                    <div className="card-header">
-                      <div className="row">
-                        <div className="col user">
-                          <span className="user-photo">
-                            {review.reviews_author_name[0]}
-                          </span>
-                          {review.reviews_author_name}
-                        </div>
-                        <div className="col vote text-end">
-                          {review.starsVote && Array.isArray(review.starsVote)
-                            ? review.starsVote.map((star, index) => {
-                                if (star === "full") {
-                                  return (
-                                    <i
-                                      key={index}
-                                      className="star fa-solid fa-star"
-                                    ></i>
-                                  );
-                                } else if (star === "empty") {
-                                  return (
-                                    <i
-                                      key={index}
-                                      className="star fa-regular fa-star"
-                                    ></i>
-                                  );
-                                } else
-                                  return (
-                                    <i
-                                      key={index}
-                                      className="star fa-solid fa-star-half-stroke"
-                                    ></i>
-                                  );
-                              })
-                            : ""}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="card-body">
-                      <p className="card-text">{review.text}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <ReviewsList reviews={movie.reviews} />
           </div>
         </section>
       </div>
