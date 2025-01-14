@@ -11,11 +11,13 @@ export default function Card({ movie }) {
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h5 className="card-title">
+            <h2 className="card-title">
               {movie.title} ({movie.release_year})
-            </h5>
-            <div className="author pb-2">{movie.director}</div>
-            <span className="badge text-bg-dark">{movie.genre}</span>
+            </h2>
+            <div className="movie-director pb-2">{movie.director}</div>
+            <div>
+              Genre: <span className="genre"> {movie.genre}</span>
+            </div>
             <p className="card-text">{movie.abstract}</p>
           </div>
         </div>

@@ -1,6 +1,7 @@
 :root {
-  --page-background: #252525;
-  --carousel-background: #b8b8b8;
+  --page-background: #171c21;
+  --user-icon-background: #2e2e2e;
+  --items-background: #414141;
   --general-text-color: white;
 }
 
@@ -15,7 +16,7 @@ body {
 }
 
 .carousel {
-  background-color: var(--carousel-background);
+  background-color: var(--items-background);
 }
 
 .carousel-inner {
@@ -25,6 +26,9 @@ body {
 .img-carousel {
   height: 470px;
   width: 100%;
+}
+.carousel-content {
+  color: var(--general-text-color);
 }
 
 .carousel-control-next-icon,
@@ -39,6 +43,14 @@ body {
   opacity: 100%;
 }
 
+.movie-director {
+  font-size: 1.2rem;
+}
+
+.genre {
+  color: rgb(196, 196, 196);
+}
+
 .card-movie,
 .card,
 .card-sections,
@@ -48,6 +60,16 @@ body {
 
 .poster {
   width: 100%;
+}
+
+.card {
+  background-color: var(--items-background);
+  color: var(--general-text-color);
+}
+
+.cards-review {
+  background-color: #f2f1f6;
+  color: var(--page-background);
 }
 
 .card-text {
@@ -60,18 +82,17 @@ body {
 }
 
 .star {
-  color: rgb(201, 201, 2);
+  color: #ec8d44;
 }
 
 .user {
   font-weight: bold;
-
   display: flex;
   align-items: center;
 }
 
 .user-photo {
-  background-color: var(--carousel-background);
+  background-color: var(--user-icon-background);
   display: inline-block;
   width: 30px;
   height: 30px;

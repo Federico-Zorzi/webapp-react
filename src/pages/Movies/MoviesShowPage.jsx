@@ -50,17 +50,19 @@ export default function MoviesShowPage() {
 
   return (
     <>
-      <div className="container">
+      <div className="container py-4">
         <section className="card-movie">
           <Card movie={movie} />
         </section>
 
         <section className="review">
+          <h2>Reviews</h2>
+
           <div className="row">
             {movie.reviews &&
               movie.reviews.map((review, index) => (
-                <div key={index} className="col">
-                  <div className="card">
+                <div key={index} className="col-12 g-3">
+                  <div className="card cards-review">
                     <div className="card-header">
                       <div className="row">
                         <div className="col user">
