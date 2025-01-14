@@ -1,6 +1,6 @@
 // IMPORT REACT HOOKS
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 // IMPORT COMPONENTS
 import Card from "../../components/mainComponents/Card";
@@ -8,6 +8,7 @@ import Card from "../../components/mainComponents/Card";
 export default function MoviesShowPage() {
   const { id } = useParams();
   const serverUrl = import.meta.env.VITE_SERVER_URL + "/api/movies/" + id;
+  const navigate = useNavigate();
 
   const [movie, setMovie] = useState([]);
 
@@ -32,21 +33,26 @@ export default function MoviesShowPage() {
     return decodStars;
   };
 
-  // ADD NEW FIELD IN SINGLE OBJECT ELEMENT FOR REVIEWS FOR PRINT STARS
-  movie.reviews &&
-    movie.reviews.forEach((review) => {
-      review.starsVote = rateStarsConversion(review.vote);
-    });
-
   // FETCH FUNCTION FOR SINGLE MOVIE
   function fetchMovie() {
     fetch(serverUrl)
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 404 || res.status === 400) {
+          navigate("/not-found");
+        }
+        return res.json();
+      })
       .then((data) => {
         setMovie(data);
       });
   }
   useEffect(fetchMovie, []);
+
+  // ADD NEW FIELD IN EVERY SINGLE OBJECT ELEMENT FOR REVIEWS FOR PRINT STARS
+  movie.reviews &&
+    movie.reviews.forEach((review) => {
+      review.starsVote = rateStarsConversion(review.vote);
+    });
 
   return (
     <>
