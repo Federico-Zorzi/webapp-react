@@ -76,9 +76,7 @@ export default function MoviesShowPage() {
         <section className="review">
           <h2>Reviews</h2>
 
-          <div className="row">
-            <ReviewsList reviews={movie.reviews} />
-          </div>
+          <ReviewsList reviews={movie.reviews} />
         </section>
       </div>
     </>
