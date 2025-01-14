@@ -1,6 +1,6 @@
 // IMPORT REACT HOOKS
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 // IMPORT COMPONENTS
 import Card from "../../components/mainComponents/Card";
@@ -50,7 +50,18 @@ export default function MoviesShowPage() {
 
   return (
     <>
-      <div className="container py-4">
+      <div className="container">
+        <div className="d-flex justify-content-end">
+          <Link to="/movies">
+            <button
+              type="button"
+              className="btn btn-outline-light fw-bold my-3"
+            >
+              Back
+            </button>
+          </Link>
+        </div>
+
         <section className="card-movie">
           <Card movie={movie} />
         </section>
