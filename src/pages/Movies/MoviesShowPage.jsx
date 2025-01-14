@@ -63,7 +63,12 @@ export default function MoviesShowPage() {
                   <div className="card">
                     <div className="card-header">
                       <div className="row">
-                        <div className="col">{review.reviews_author_name}</div>
+                        <div className="col user">
+                          <span className="user-photo">
+                            {review.reviews_author_name[0]}
+                          </span>
+                          {review.reviews_author_name}
+                        </div>
                         <div className="col vote text-end">
                           {review.starsVote && Array.isArray(review.starsVote)
                             ? review.starsVote.map((star, index) => {

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-dark mb-3" data-bs-theme="dark">
+    <nav className="navbar navbar-expand-lg bg-dark py-3" data-bs-theme="dark">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           MoviesLogo

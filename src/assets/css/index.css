@@ -1,5 +1,42 @@
+:root {
+  --page-background: #252525;
+  --carousel-background: #b8b8b8;
+  --general-text-color: white;
+}
+
 a {
   text-decoration: none;
+  color: black;
+}
+
+body {
+  background-color: var(--page-background);
+  color: var(--general-text-color);
+}
+
+.carousel {
+  background-color: var(--carousel-background);
+}
+
+.carousel-inner {
+  color: var(--general-text-color);
+}
+
+.img-carousel {
+  height: 470px;
+  width: 100%;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon,
+.carousel-indicators {
+  opacity: 0;
+}
+
+.carousel-control-next:hover .carousel-control-next-icon,
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-indicators:hover {
+  opacity: 100%;
 }
 
 .card-movie,
@@ -18,14 +55,31 @@ a {
   overflow-y: scroll;
 }
 
-.toast {
-  display: block;
-}
-
 .vote {
   font-weight: bold;
 }
 
 .star {
   color: rgb(201, 201, 2);
+}
+
+.user {
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+}
+
+.user-photo {
+  background-color: var(--carousel-background);
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+
+  color: white;
+  font-size: 1.2rem;
 }
