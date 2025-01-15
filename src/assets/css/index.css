@@ -1,7 +1,7 @@
 :root {
   --page-background: #171c21;
   --user-icon-background: #2e2e2e;
-  --items-background: #414141;
+  --items-background: #4141412b;
   --general-text-color: white;
 }
 
@@ -32,14 +32,12 @@ body {
 }
 
 .carousel-control-next-icon,
-.carousel-control-prev-icon,
-.carousel-indicators {
+.carousel-control-prev-icon {
   opacity: 0;
 }
 
 .carousel-control-next:hover .carousel-control-next-icon,
-.carousel-control-prev:hover .carousel-control-prev-icon,
-.carousel-indicators:hover {
+.carousel-control-prev:hover .carousel-control-prev-icon {
   opacity: 100%;
 }
 

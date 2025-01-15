@@ -4,8 +4,8 @@ export default function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg bg-dark py-3" data-bs-theme="dark">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">
-          MoviesLogo
+        <NavLink className="navbar-brand" to="/movies">
+          <i className="fa-solid fa-film fa-xl"></i>
         </NavLink>
         <button
           className="navbar-toggler"
